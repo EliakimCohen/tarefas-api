@@ -72,21 +72,13 @@ Cobrem CRUD, isolamento entre usuários, paginação, filtros, campos inválidos
 - `tasks/tests.py`: testes de integração.
 - `examples/demo.py`: cliente executável com cookies e CSRF.
 
-O projeto usa recursos do próprio Django para exercitar fundamentos HTTP antes de adicionar Django REST Framework. A consulta sempre filtra pelo proprietário autenticado e nunca aceita `owner` no corpo da requisição. Senhas são tratadas pelo sistema de autenticação do Django.
+A API utiliza views e respostas JSON do próprio Django. A consulta sempre filtra pelo proprietário autenticado e nunca aceita `owner` no corpo da requisição. Senhas são tratadas pelo sistema de autenticação do Django.
 
-## Limites e próximos passos
+## Configuração de desenvolvimento
 
-Configuração de **desenvolvimento local**, com DEBUG ligado e chave pública apenas para estudo. Antes de publicar um serviço, configure segredo via ambiente (`DJANGO_SECRET_KEY`), desative DEBUG (`DJANGO_DEBUG=0`), configure hosts, HTTPS, servidor WSGI/ASGI, política de senhas e proteção contra tentativas repetidas de login. Não há recuperação de senha, cadastro público, rate limiting ou interface gráfica.
+Configuração de **desenvolvimento local**, com DEBUG ligado e chave padrão de desenvolvimento. Antes de publicar um serviço, configure segredo via ambiente (`DJANGO_SECRET_KEY`), desative DEBUG (`DJANGO_DEBUG=0`), configure hosts, HTTPS, servidor WSGI/ASGI, política de senhas e proteção contra tentativas repetidas de login. Não há recuperação de senha, cadastro público, rate limiting ou interface gráfica.
 
-Para evoluir: adicionar prazos, busca, documentação OpenAPI ou um front-end React. Atualize as dependências de forma periódica e execute os testes.
 
-## Para explicar numa entrevista
-
-1. Por que filtrar tarefas pelo usuário em todas as operações?
-2. Qual é a diferença entre 401, 403 e 404?
-3. Por que autenticação por cookie precisa de CSRF?
-4. Por que validar todos os campos antes de gravar um PATCH?
 
 Referências: [Django](https://docs.djangoproject.com/en/5.2/), [autenticação](https://docs.djangoproject.com/en/5.2/topics/auth/default/) e [CSRF](https://docs.djangoproject.com/en/5.2/howto/csrf/).
 
-Projeto de estudo preparado com apoio de IA para evolução prática.
